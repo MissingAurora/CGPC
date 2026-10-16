@@ -8,6 +8,8 @@
 
 All scripts start from `CGPC_SFT_PATH`, keep a frozen reference anchored to that LoRA checkpoint, and train for one epoch. Qwen uses eight responses per prompt; InternVL uses six responses and candidate mini-batches of two. Training budgets are SINGLE 256, ROW 1024, and density-dependent ALL up to `CGPC_ALL_MAX_TOKENS` (default 10240). No geometric augmentation is used.
 
+Set `CGPC_TRAIN_JSON` to the training split. Select the starting LoRA checkpoint by validation loss, then select CGPC checkpoints by training-set performance recorded during refinement. Test evaluation uses a separate input JSON in the evaluation scripts.
+
 The three trainers share Composite Grounding Advantage and Gate-Based Preference Consolidation. CGA combines centered set utility and continuous localization credit. GPC selects qualified sampled improvements over the greedy response on ALL tasks and applies reference-relative preference losses at the first differing token and the subsequent suffix. Its group-level policy gate switches the ordinary policy-gradient term; the reference KL term remains active for eligible sampled responses.
 
 For dense RefCOCO, use the same trainers with the RefCOCO LoRA checkpoint, records, and image root. Instructions requesting all instances map to ALL; LEFT, RIGHT, and MIDDLE instance requests map to SINGLE.

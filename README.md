@@ -10,7 +10,7 @@ Code for **CGPC: Composite Grounding and Preference Consolidation for Multilevel
 | `evaluation/cotton/` | Cotton-bale evaluation and complete prediction export |
 | `evaluation/refcoco/` | Dense RefCOCO evaluation and complete prediction export |
 | `visualization/` | Qualitative grids and gradient attribution |
-| `data_tools/` | Shared grounding protocol, record validation, teacher CoT generation, and dense RefCOCO subset splitting |
+| `data_tools/` | Shared grounding protocol, record validation, teacher CoT generation, and dense RefCOCO instruction generation |
 
 Each directory has its own README with entry points and required arguments.
 `data_tools/grounding_protocol.py` provides the common task mapping, response parsing, coordinate validation, and spatial GT-order matching used by the training and evaluation entry points.
@@ -29,9 +29,15 @@ export CGPC_BASE_MODEL=/path/to/base/model
 export CGPC_SFT_PATH=/path/to/lora/checkpoint
 export CGPC_ADAPTER_PATH=/path/to/cgpc/checkpoint
 export CGPC_TRAIN_JSON=/path/to/train.json
-export CGPC_EVAL_JSON=/path/to/eval.json
+export CGPC_VALID_JSON=/path/to/validation.json
+export CGPC_EVAL_JSON=/path/to/test.json
 export CGPC_IMAGE_ROOT=/path/to/images
 export CGPC_OUTPUT_DIR=/path/to/output
+```
+
+For dense RefCOCO, use `data_tools/generate_refcoco_records.py` with existing image splits to export `refcoco_train.json` and `refcoco_valid.json`. See [data preparation](data_tools/README.md) for commands and dataset registration.
+
+LoRA uses validation loss for checkpoint selection; CGPC uses training-set performance during refinement. XTuner reads `CGPC_VALID_JSON`, while LLaMA-Factory reads the validation dataset registered under each recipe's `eval_dataset`. See [LoRA configuration](training/lora/README.md) for both interfaces.
 
 ## Minimal workflow
 
@@ -48,9 +54,4 @@ python evaluation/cotton/eval_qwen.py \
   --data-json /path/to/eval.json \
   --image-root /path/to/images \
   --output-dir ./outputs/eval_qwen2b_cgpc
-
-### 后续执行命令
-```bash
-git add README.md
-git rebase --continue
-git push -f origin master
+```

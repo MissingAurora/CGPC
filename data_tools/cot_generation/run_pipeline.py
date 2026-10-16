@@ -10,6 +10,8 @@ import sys
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, required=True)
+    parser.add_argument('--train-json', default='train_split.json')
+    parser.add_argument('--valid-json', default='valid_split.json')
     parser.add_argument('--model', default='qwen3-vl-flash')
     parser.add_argument('--base-url', default=os.getenv('TEACHER_API_URL'))
     parser.add_argument('--workers', type=int, default=2)
@@ -30,7 +32,9 @@ def main():
     def run(script, *arguments):
         subprocess.run([sys.executable, str(code / script), *map(str, arguments)], cwd=root, check=True)
 
-    run('build_manifest.py', '--root', root)
+    sources = {'train': args.train_json, 'valid': args.valid_json}
+    run('build_manifest.py', '--root', root, '--train', sources['train'],
+        '--valid', sources['valid'])
     for split in ('train', 'valid'):
         prefix = f'teacher_work/manifest/{split}'
         report = f'teacher_work/reports/{split}'
@@ -54,7 +58,7 @@ def main():
         run('validate_reasoning.py', '--input', accepted + '_hard.jsonl', '--accepted', accepted + '.jsonl',
             '--retry', f'teacher_work/retry/{split}.jsonl', '--report', report + '_reasoning.json')
         extra = ['--exclude-images', args.exclude_images.resolve()] if args.exclude_images else []
-        run('merge_dataset.py', '--source', f'new_{split}.json', '--split', split,
+        run('merge_dataset.py', '--source', sources[split], '--split', split,
             '--accepted', accepted + '.jsonl', '--require-accepted', '--output', f'new_{split}_cot_final.json',
             '--report', report + '_merge.json', *extra)
     run('export_cot.py', '--root', root)

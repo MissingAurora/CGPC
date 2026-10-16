@@ -24,8 +24,8 @@ from cot_common import (
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, default=Path.cwd())
-    parser.add_argument("--train", default="new_train.json")
-    parser.add_argument("--valid", default="new_valid.json")
+    parser.add_argument("--train", default="train_split.json")
+    parser.add_argument("--valid", default="valid_split.json")
     parser.add_argument("--output-dir", default="teacher_work/manifest")
     return parser.parse_args()
 

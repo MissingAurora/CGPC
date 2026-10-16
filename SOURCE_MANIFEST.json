@@ -1,6 +1,6 @@
 {
-  "release_date": "2026-10-15",
-  "basis": "Paper-aligned public code organized from D:/agent/论文/代码原始资料 and the maintained CGPC implementations",
+  "release_date": "2026-10-16",
+  "basis": "Paper-aligned public code organized from author-provided source implementations",
   "excludes": [
     "datasets",
     "images",
@@ -13,254 +13,256 @@
   "files": [
     {
       "file": ".gitignore",
-      "sha256": "f4f2b94861f7f4f17f2057632382db25fa7874b99b04249815d662dfcaed4300"
+      "sha256": "68a827bc38ddaa764210e185cf2e20aa83fcac537aac6e1112921781e90164c1"
+    },
+    {
+      "file": "README.md",
+      "sha256": "9dc2d8c55da2cd1290e5bd8d938141be7ff791848f01b2ecb8480087dc8032dd"
+    },
+    {
+      "file": "data_tools/README.md",
+      "sha256": "47524817c9d914e635c8470b74f0b64981f9986880d780ccc93fa5f3e18d899e"
     },
     {
       "file": "data_tools/__init__.py",
-      "sha256": "7eb3d22012e5d1c5356f476d0fb2e4dbd89035a7b9f85d52e65c750e7d7333cb"
+      "sha256": "b895c402878767f8cac120f9e03868fd6c3602c01bae6d2183d33177607fbde5"
+    },
+    {
+      "file": "data_tools/cot_generation/README.md",
+      "sha256": "2532bdb5c3f8b16ba13b694220c9883720209c318f75443fe12651c412b5fe5b"
     },
     {
       "file": "data_tools/cot_generation/audit_dataset.py",
-      "sha256": "f038381bfb2d24b0c4548009ac75cb5b1aea8c9ee9d34c5430f5e4fa8a678b69"
+      "sha256": "60d4113fa75b93c8e5ed921ac9419b9384bc23b64da0e5755f0a058be884e7a7"
     },
     {
       "file": "data_tools/cot_generation/audit_export.py",
-      "sha256": "c309ca2fd7a101b3f04a33ec7e296d2f10e202237d33e3a12efa8eb274bb977d"
+      "sha256": "29fd34dde50dbf1342da13179028bde46c44b02248af7fd86cc356325e1db9a2"
     },
     {
       "file": "data_tools/cot_generation/build_manifest.py",
-      "sha256": "037fc6d59f4962fcfc4fc267d1382becacce8fca18c3af5e3e3ad073a2546f74"
+      "sha256": "cf4db51690dc9573fd4530bd7f6ee467cf675c9da5dbc6531b09fb23fb58c6af"
     },
     {
       "file": "data_tools/cot_generation/cot_common.py",
-      "sha256": "c89b85899b211102cea2ab8b8b9d645d25d4902d65d2232d59f7d78349dee69d"
+      "sha256": "4c6bcbf5e335bbd4d326c2eaa162ec9db0376e8b8c21f4a7130970cbfd0ca8d0"
     },
     {
       "file": "data_tools/cot_generation/export_cot.py",
-      "sha256": "4de8f901670224ba82551031b2f9881b687aeb921dc05122d4bd401d321d5c2f"
+      "sha256": "4fdf3d8d257f045645eccc40907355823fcb85e004517793b68db3463cf491c7"
     },
     {
       "file": "data_tools/cot_generation/filter_annotations.py",
-      "sha256": "d87aaa90e86af310496ac2acdc82d70a8d1baf0ee8fb5dc9e02daa0f24551603"
+      "sha256": "f677ad222fcd7f5af10308206087429d3cf9015e0224aa607fa5466cc58b47f1"
     },
     {
       "file": "data_tools/cot_generation/generate_teacher.py",
-      "sha256": "73f9d54a04551802de4edd774ade5f6ff66e1bfbe47a279c2100a38e49c1a9e1"
+      "sha256": "e896847233c9af25908347e0728c1a64fa9e528c273631e30acb65ed7fcb77c3"
     },
     {
       "file": "data_tools/cot_generation/merge_dataset.py",
-      "sha256": "18fcada779ae3bfacc826d24fbfd8ff178e87ecb8b6e623b99692481d76f6f3b"
+      "sha256": "79db3a0709db9530d22df351444b228a413e3e7a4ba4b69b008bd1fc24a9d107"
     },
     {
       "file": "data_tools/cot_generation/normalize_answers.py",
-      "sha256": "54188be636671a72e2625aa939e2ba4da8ae382049822fe5c9dd88b8e5ad1cd2"
+      "sha256": "29561499d8ba2073791118f7bbdd4846d22dd1c5ee787927ea2c36e0b7fb63cd"
     },
     {
       "file": "data_tools/cot_generation/prompts/README.md",
-      "sha256": "ad46c5925651c5b2658ab89a71a54be8de033749dd36dc8ef23ce2aa441245b3"
+      "sha256": "b385af0f8c0ebf0928fc9c0d9e6be0c0e316a8c22c0245121749b0d935b5b2fc"
     },
     {
       "file": "data_tools/cot_generation/prompts/teacher_system.txt",
       "sha256": "1390d1841233b41d94aa20986da5504a3a5c47dbff86061299e1508b00408f44"
     },
     {
-      "file": "data_tools/cot_generation/README.md",
-      "sha256": "6cbffd62996fca666c97bc8648b0f0e52c024a799a3df4120dae5f125213b61d"
-    },
-    {
       "file": "data_tools/cot_generation/requirements.txt",
-      "sha256": "5ca0d7e8e1f5debe9e3857f892d3037980dc84666c0a789b1eec865df510bcdd"
+      "sha256": "f405e05a60608a14261d6ef4b1877363f7cdfcbd2f8091fed2326267ed59bade"
     },
     {
       "file": "data_tools/cot_generation/run_pipeline.py",
-      "sha256": "08afb044071f839b8de7a04b8a0765bbe7e20833c68816a42c214d6d19a4e196"
+      "sha256": "0852b3d89ae7e7a0befde40bd87e51d05a9cd8aca062072286c279a23b82c987"
     },
     {
       "file": "data_tools/cot_generation/sample_pilot.py",
-      "sha256": "7b1c545837557100a2dbb74252a0ddacf6c3993a9788a92e911a8aa972f15c38"
+      "sha256": "dcaa34a23d7f7a664a42ec273da7b95559f9c10efe962221058cd38142871c5d"
     },
     {
       "file": "data_tools/cot_generation/sample_review.py",
-      "sha256": "6151b6bbc535ad0028cce9ee0b42c17fd60f5815920f0c7a6c2a469dd6203fac"
+      "sha256": "fb51aa28401649d3f2aba7afe0d5219626cb726fbcdd8c2455cd1c196a125bed"
     },
     {
       "file": "data_tools/cot_generation/sanitize_teacher.py",
-      "sha256": "2c502ddad3a5c1f062703148b818db20761347c80412ea50a8ab9bc4288d48e0"
+      "sha256": "379c81674048a0778976244f1b406a65af0264655e9676f0adfbd438c4af4966"
     },
     {
       "file": "data_tools/cot_generation/validate_reasoning.py",
-      "sha256": "40d73a36f71beead2817674eb023d6d40425b23e8a3051e34b47f09ee84c9b47"
+      "sha256": "5e8dfdba6fa2d0b542d82cbe08ba0ea648d9f4a0e5856ba68b559a8d5fdf8d8f"
     },
     {
       "file": "data_tools/cot_generation/validate_structure.py",
-      "sha256": "a2c194a1086af4075c6d98d9613ac2ea9e3e0221badef969257db61786e77019"
+      "sha256": "f00300f2ee311f6956da1ddc63735ae48c043d7da6d5e4e49adc094ce8e27165"
+    },
+    {
+      "file": "data_tools/generate_refcoco_records.py",
+      "sha256": "870c1232fef6d6fdd2945cda958f22f1ad7b9755efc44b1404b1507a0d419e53"
     },
     {
       "file": "data_tools/grounding_protocol.py",
-      "sha256": "f184e721247624b142d261b9fafc27dff88c5de1fd5dff8616576971b3865469"
-    },
-    {
-      "file": "data_tools/README.md",
-      "sha256": "f8a470257395e91e78138606c195eccac1a8138d6128c09f2aa44c65769a11d3"
-    },
-    {
-      "file": "data_tools/requirements.txt",
-      "sha256": "76b532ee126e466f27a9d99c4bb64c38b02c5a3e829e5a9a1f4a50d1ae4758c7"
-    },
-    {
-      "file": "data_tools/split_refcoco.py",
-      "sha256": "1a11ce83600811917370fd9b8c82c104ebab0b674591aec457fa621cff9e19e1"
+      "sha256": "5f1af481724f5bae40dea4422817723967c920bad233328e69fd17174a81f5e8"
     },
     {
       "file": "data_tools/validate_records.py",
-      "sha256": "a14a848cdec5bff881e6c650873a6073c78b41797177d8034b6ff8a21a992a47"
-    },
-    {
-      "file": "evaluation/cotton/eval_cot.py",
-      "sha256": "28d76f02d49e44790b423c8ce35b4e450a4189dbfb48e02f12f6f590b9a4a318"
-    },
-    {
-      "file": "evaluation/cotton/eval_internvl_base.py",
-      "sha256": "bebd267aad8334e668b0981daf63a2db57d77f3d961568c96ee99a5e303517cb"
-    },
-    {
-      "file": "evaluation/cotton/eval_internvl_cgpc.py",
-      "sha256": "bd1914f5fd0439d2023afacb60bc3e189d67fd5a0ecfbaf2d414d34c3cf0f0fb"
-    },
-    {
-      "file": "evaluation/cotton/eval_internvl_lora.py",
-      "sha256": "24437aee31114bb35cc68c0a52d320cbd53315b2bac250e422c77c22442c79dc"
-    },
-    {
-      "file": "evaluation/cotton/eval_qwen.py",
-      "sha256": "7ba4ba11f39edc6e3f44c9e26a1cd72c7c8d19889182d99e4043f45127340c9f"
-    },
-    {
-      "file": "evaluation/cotton/README.md",
-      "sha256": "707fa7727c584af0c474728d7a33edffdf301a5b80b1e1bc3a6d52737e200b8b"
+      "sha256": "e219b4a22bd14cc6672af9f40a01c0cc0ea898613202c6fe595fc930decc0e62"
     },
     {
       "file": "evaluation/README.md",
-      "sha256": "f8491c641e54b0a29132ec156d42a7531215d30f68afe7519baa26b7f063f956"
+      "sha256": "612b906830df62227004c9b9eb8ef41e7039aa9f3d210f66de6fdaeafea8ac06"
     },
     {
-      "file": "evaluation/refcoco/eval_internvl_base.py",
-      "sha256": "96a4d643dc7db0ad3d7e3871e25c3c87105ce371de000cc0a8c06a8d94824901"
+      "file": "evaluation/cotton/README.md",
+      "sha256": "5194d2dc37dc28c3ed1119c6d5618d6ff79dffa0a20185b7b7e0b51991407e0a"
     },
     {
-      "file": "evaluation/refcoco/eval_internvl_cgpc.py",
-      "sha256": "39e95b46a121970381b8cdfc2afd823d2e122097ad7e18952b321eb959eb99e0"
+      "file": "evaluation/cotton/eval_cot.py",
+      "sha256": "2ea77b847e61d43de7375e6ac3836213fc5946a6ffcf7f9facd06ac0f4ea4384"
     },
     {
-      "file": "evaluation/refcoco/eval_internvl_lora.py",
-      "sha256": "1484dab6d158e5c1a24ee6da9a1b5a2928ed49d2a429dbffeef295a256596f04"
+      "file": "evaluation/cotton/eval_internvl_base.py",
+      "sha256": "e2a1db0dcb23c0ed288a1f07580ee42593064638ff0d54c4295fd3c60b059032"
     },
     {
-      "file": "evaluation/refcoco/eval_qwen.py",
-      "sha256": "934baae24b8f16a9b4c1b06fb0ecaa1a10ad449ac1c40029624209f8d586828d"
+      "file": "evaluation/cotton/eval_internvl_cgpc.py",
+      "sha256": "cd4f9c7520a4984a08d7c540d957142791072e9b599a8bb0e64c745959304fcb"
+    },
+    {
+      "file": "evaluation/cotton/eval_internvl_lora.py",
+      "sha256": "e04470fed1aecb8b8e05a82f13a45522cf6515d6870394afc6ec9a9da2560984"
+    },
+    {
+      "file": "evaluation/cotton/eval_qwen.py",
+      "sha256": "a604ac550842fe2e642f2bd5e7c454c1dc5e59677f92af24bb436a462291f763"
     },
     {
       "file": "evaluation/refcoco/README.md",
-      "sha256": "6e445209737ff45dedff47eefc3a61ce3e889b790850e5adada40b95bca77eea"
+      "sha256": "dc6dade13900d6e9dab996283af10b1221b6af4f06e60123763f13c934b83f62"
     },
     {
-      "file": "README.md",
-      "sha256": "b19fff36d552c7302cac288f576e09b81270e639cfe24d420f624b3397789f9a"
+      "file": "evaluation/refcoco/eval_internvl_base.py",
+      "sha256": "a9fbdb5976719305737554fb634b51d19ac3a7ce32c6a9e9cea0834dc0b92e27"
+    },
+    {
+      "file": "evaluation/refcoco/eval_internvl_cgpc.py",
+      "sha256": "9a549158cbc9814735bc773843ccbefcb13fc3dfeb2aad7078e9d9dcf65f1910"
+    },
+    {
+      "file": "evaluation/refcoco/eval_internvl_lora.py",
+      "sha256": "b0a31b8814124ffb86204c40e947098160ba46a2463297bf6a5daa11f0df4c17"
+    },
+    {
+      "file": "evaluation/refcoco/eval_qwen.py",
+      "sha256": "83aa2a78bb87452e9b9d73aac701259f245a433c9742689d071a64608f2ed847"
     },
     {
       "file": "requirements.txt",
-      "sha256": "f685d9c3c93155aa5b0178fe81cc88cf71a237a24f4e5fdb53c9d0dff6fcb605"
-    },
-    {
-      "file": "training/ablations/README.md",
-      "sha256": "39f80fe01349ad8f9ff9cd7846b80fe876faf930fdf36b9d6087bd05f4afbb35"
-    },
-    {
-      "file": "training/ablations/train_cga_only.py",
-      "sha256": "a81b06592eef0de21431d7d67553e847fb4fffa8a5c6a924e826c4984659a3c9"
-    },
-    {
-      "file": "training/ablations/train_gpc_only.py",
-      "sha256": "07ababf9e26152baf1d10300be3375a4d266f52c4754ad8ad61336f1e3f5d838"
-    },
-    {
-      "file": "training/ablations/train_grpo_base.py",
-      "sha256": "c4338c4760acba58fa5a1721dbbcafa50d0ae27068af711d20ff187e9930ecae"
-    },
-    {
-      "file": "training/grpo/README.md",
-      "sha256": "1986c9b7e89b8070f0a691e70cd4c112582059b70c9c7dd8c68aa27f69017e0f"
-    },
-    {
-      "file": "training/grpo/train_internvl8b.py",
-      "sha256": "a181fbfc8bf1cfd179de6f527ab220a1627e3caaea1444ccdb394cc998d191b7"
-    },
-    {
-      "file": "training/grpo/train_qwen2b.py",
-      "sha256": "ae27e42b4933455c3cadda438da03db4b6e0e5f556ef5584c8c78af5d486666a"
-    },
-    {
-      "file": "training/grpo/train_qwen8b.py",
-      "sha256": "58542f4b8007ba491141fae321275ff4959f59c651b7ab8aeda7f1bd6555d7c1"
-    },
-    {
-      "file": "training/lora/internvl8b_cotton.py",
-      "sha256": "6120375fee2a09b0368f5d4a7fb5e31b60889c3ead341601ffe086d2078200dc"
-    },
-    {
-      "file": "training/lora/internvl8b_refcoco.py",
-      "sha256": "b4478c1d59a36610abe524f66a5283f0dec0889d8661ec88b3a1c6d78577427e"
-    },
-    {
-      "file": "training/lora/qwen2b_cot.yaml",
-      "sha256": "013eb5b4757206a54897cb2944c1781912a23f58f2c994e51e9f8ea9e26d267d"
-    },
-    {
-      "file": "training/lora/qwen2b_cotton.yaml",
-      "sha256": "90357d1e2cec60b0a1afac8555c452093e9726b31956717eb26cb2dbc897d86b"
-    },
-    {
-      "file": "training/lora/qwen2b_refcoco.yaml",
-      "sha256": "5b026ba213270f082a6a3780b1d1476e659d9d3c77db81b1aec6eb56db48fae0"
-    },
-    {
-      "file": "training/lora/qwen8b_cotton.yaml",
-      "sha256": "83b081be4cd4b1d5b9db40170b764638724205b8e4bd6799fe4039a2bfccc391"
-    },
-    {
-      "file": "training/lora/qwen8b_refcoco.yaml",
-      "sha256": "7d55badf2a11837d9b7e86b26ea61a4e1605455898474b36d647047b7adfd6f8"
-    },
-    {
-      "file": "training/lora/README.md",
-      "sha256": "741c86b4bad1c22d32762ef1d1968e1075236bd4e4d20c72dfa90f5d33b3e805"
+      "sha256": "6d01379dc7db854bc4d7f1c37b7781ea47d8a1d5e14442568d96d50f598e7ab8"
     },
     {
       "file": "training/README.md",
-      "sha256": "94f7d5583e959a204e2cc5e932faf6ae6e772cf80aac01bc90265865b155ec04"
+      "sha256": "ea0528a74a7c6e88c881ed44e986bde07d2b0a1eccae594f08ca6d230e7a9993"
     },
     {
-      "file": "visualization/gradient_attribution.py",
-      "sha256": "07cbf3537027ff07d6e0628599ecd31ac8d41797a791c787c27b9d92a7c00e54"
+      "file": "training/ablations/README.md",
+      "sha256": "043ad6e54b8a3fa06827458ca8a755841f7bc7ff38ac5e2e9f1b1a050d7ced6b"
     },
     {
-      "file": "visualization/plot_comparison_grid.py",
-      "sha256": "d5ebee11850ec2fa4759dd381511872fb3b545e4294c5e0134591066d19e18d4"
+      "file": "training/ablations/train_cga_only.py",
+      "sha256": "99a47612a158a048e1632ea5c4ecce1b2b16f36ef2c2e2c6076f2bb529f5dbb9"
+    },
+    {
+      "file": "training/ablations/train_gpc_only.py",
+      "sha256": "91a277e1a16a4a315798eb69269186ebba2664682d17322c990464008d95d8f6"
+    },
+    {
+      "file": "training/ablations/train_grpo_base.py",
+      "sha256": "7d9c75887e1e368633b3f97841dc664de57d27b29fd3ac2a9fbcb884df164545"
+    },
+    {
+      "file": "training/grpo/README.md",
+      "sha256": "0620a24b7efd0988dd73de3df8a2ad1f67e7a726c30536430bef4bf6beed5cd9"
+    },
+    {
+      "file": "training/grpo/train_internvl8b.py",
+      "sha256": "4ae2f5fb912cde920978941affcc81fbd8e3c539c72db682eca872ef495f1f5d"
+    },
+    {
+      "file": "training/grpo/train_qwen2b.py",
+      "sha256": "f854d573d87f178fad4487435cc584fc1c9e21e7fa21e13282dfb68b8356c75d"
+    },
+    {
+      "file": "training/grpo/train_qwen8b.py",
+      "sha256": "20087147dd407aa78baa45f726a2361e5820708422f2729acac0a3937f0bfa36"
+    },
+    {
+      "file": "training/lora/README.md",
+      "sha256": "4a6b64c97402282a5272790a57e617ec9a6a8a7de531b5d507f553875667db54"
+    },
+    {
+      "file": "training/lora/internvl8b_cotton.py",
+      "sha256": "69730ed7e4bd30c447af6656a922c8267f95df02e5d61b719b13c9c133a621af"
+    },
+    {
+      "file": "training/lora/internvl8b_refcoco.py",
+      "sha256": "3a5d2e43f33435459ab2a42c5c29c5e04065e9aab60e7918a7d68e1d2f559678"
+    },
+    {
+      "file": "training/lora/qwen2b_cot.yaml",
+      "sha256": "fc0a771d1738c48febc396a29c91d263a7a5864f200e0fbdcf51e21ae48a1c9d"
+    },
+    {
+      "file": "training/lora/qwen2b_cotton.yaml",
+      "sha256": "00106009d1d9c2861270d6a739b71d67e6aca2247d3351c7a57c6783b5ada8b0"
+    },
+    {
+      "file": "training/lora/qwen2b_refcoco.yaml",
+      "sha256": "1e666b75e5d9b8808d1b76a97c6529e38e8718f01f6b82641b222dfcb3851c41"
+    },
+    {
+      "file": "training/lora/qwen8b_cotton.yaml",
+      "sha256": "91916e01770e1cec405cfd98ea91ce3a033e9cfa0cb25ee904f6a4f73957ac31"
+    },
+    {
+      "file": "training/lora/qwen8b_refcoco.yaml",
+      "sha256": "80abb81a6acc382433ac44083706bd4b61fca7cb33f9a13c55415b9bc4e45b99"
+    },
+    {
+      "file": "training/lora/validation.py",
+      "sha256": "02e86126e1bfbd2e777d6c674a612af7f8a8f414a0fe3cc1e244123fc8913e9e"
     },
     {
       "file": "visualization/README.md",
-      "sha256": "5b954d98632852f852f34017af6c99e5766a465743a5f6a309e5ae9e79db95ab"
+      "sha256": "da0cfa946501da5c105f61ddeec309940cc632fe664f7656e94f589b1007069a"
+    },
+    {
+      "file": "visualization/gradient_attribution.py",
+      "sha256": "a94ed36ac64901a3170456e69e5c9ced5926d112a7fcc60598ebb995c23b3d89"
+    },
+    {
+      "file": "visualization/plot_comparison_grid.py",
+      "sha256": "1ead5372893c8bcc31844b274b67a0c6a9e9fbc7a66c886886c800a4b6fb370e"
     }
   ],
   "data_tools_sources": {
     "cot_generation": "代码原始资料/cot_generation: final production prompt, generation, sanitation, validation, detailed export",
-    "refcoco_split": "代码原始资料/split_dataset.py: dominant-category stratified split of a preselected image subset",
     "adaptations": [
       "descriptive script names and explicit paths",
       "CoT images list schema aligned with training registration",
       "single canonical CoT export without duplicate aliases",
-      "RefCOCO original-image grouping and split manifests"
-    ]
+      "Explicit existing train/validation inputs",
+      "RefCOCO output names aligned with LoRA registration"
+    ],
+    "refcoco_records": "generate_json_dataset.py: ALL and SINGLE records from existing COCO image splits",
+    "refcoco_records_source_sha256": "e176c8c1c3554212aee4d8a68e4e8a2a824236405dd43f2df15dd6b91aeefc05"
   },
   "training_alignment": {
     "date": "2026-10-15",
@@ -277,6 +279,15 @@
       "policy adapter",
       "visual_projector.pt"
     ],
-    "evaluation": "Spatial GT-order greedy matching, strict IoU > 0.5; invalid parsed predictions count as FP"
+    "evaluation": "Spatial GT-order greedy matching, strict IoU > 0.5; invalid parsed predictions count as FP",
+    "validation": {
+      "lora": "Existing validation split; checkpoint selection by minimum validation loss",
+      "cgpc": "Checkpoint selection by training-set performance during refinement",
+      "cotton_records": {
+        "train": 7652,
+        "validation": 1277,
+        "test": 3836
+      }
+    }
   }
 }

@@ -85,7 +85,7 @@ ddp_timeout: 180000000
 resume_from_checkpoint: null
 
 ### eval
-# val_size: 0.1
+# Read the existing validation split registered as refcoco_valid.
 per_device_eval_batch_size: 1
 eval_strategy: steps
 eval_steps: 500

@@ -1,3 +1,6 @@
+import os
+
+custom_imports = dict(imports=['training.lora.validation'], allow_failed_imports=False)
 accumulative_counts = 8
 batch_size = 2
 betas = (
@@ -16,7 +19,8 @@ custom_hooks = [
         output_dir='./work_dirs/internvl3_8b_lora_refcoco/',
         type='xtuner.engine.hooks.loss_plot_hook.LossPlotHook'),
 ]
-data_path = 'data/refcoco_train.json'
+data_path = os.environ.get('CGPC_TRAIN_JSON', 'data/refcoco_train.json')
+validation_data_path = os.environ.get('CGPC_VALID_JSON', 'data/refcoco_valid.json')
 data_root = 'data/'
 dataloader_num_workers = 2
 default_hooks = dict(
@@ -26,6 +30,8 @@ default_hooks = dict(
         max_keep_ckpts=-1,
         save_last=True,
         save_optimizer=False,
+        save_best='grounding/loss',
+        rule='less',
         type='mmengine.hooks.CheckpointHook'),
     logger=dict(
         interval=1,
@@ -38,12 +44,12 @@ env_cfg = dict(
     cudnn_benchmark=False,
     dist_cfg=dict(backend='nccl'),
     mp_cfg=dict(mp_start_method='fork', opencv_num_threads=0))
-image_folder = 'data/'
+image_folder = os.environ.get('CGPC_IMAGE_ROOT', 'data/')
 launcher = 'pytorch'
 llava_dataset = dict(
     data_paths=
-    'data/refcoco_train.json',
-    image_folders='data/',
+    data_path,
+    image_folders=image_folder,
     max_length=6144,
     model_path=
     'models/InternVL3-8B',
@@ -122,14 +128,14 @@ tokenizer = dict(
     'models/InternVL3-8B',
     trust_remote_code=True,
     type='transformers.AutoTokenizer.from_pretrained')
-train_cfg = dict(max_epochs=20, type='xtuner.engine.runner.TrainLoop')
+train_cfg = dict(max_epochs=20, val_interval=1000, type='xtuner.engine.runner.TrainLoop')
 train_dataloader = dict(
     batch_size=2,
     collate_fn=dict(type='xtuner.dataset.collate_fns.default_collate_fn'),
     dataset=dict(
         data_paths=
-        'data/refcoco_train.json',
-        image_folders='data/',
+        data_path,
+        image_folders=image_folder,
         max_length=6144,
         model_path=
         'models/InternVL3-8B',
@@ -140,6 +146,14 @@ train_dataloader = dict(
         length_property='modality_length',
         per_device_batch_size=16,
         type='xtuner.dataset.samplers.LengthGroupedSampler'))
+val_dataloader = dict(
+    batch_size=1,
+    num_workers=2,
+    collate_fn=dict(type='xtuner.dataset.collate_fns.default_collate_fn'),
+    sampler=dict(type='mmengine.dataset.DefaultSampler', shuffle=False),
+    dataset=dict(llava_dataset, data_paths=validation_data_path))
+val_cfg = dict(type='GroundingLossValLoop')
+val_evaluator = dict(type='GroundingValidationLoss')
 visualizer = None
 warmup_ratio = 0.03
 weight_decay = 0.0

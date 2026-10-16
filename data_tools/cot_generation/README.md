@@ -4,15 +4,17 @@ This workflow uses Qwen3-VL-Flash to generate task understanding, scene descript
 
 ## Inputs and setup
 
-Install `requirements.txt` in this directory. Provide a data root with `new_train.json`, `new_valid.json`, and the images referenced by those records. Records use `images: [relative_path]` and two `conversations` turns (`human`, `gpt`). Original answers contain `bbox_2d` and `labels`, with normalized coordinates in 0–1000. The source annotations use `front` and `side` labels.
+Install `requirements.txt` in this directory. Provide a data root with `train_split.json`, `valid_split.json`, and the images referenced by those records. Records use `images: [relative_path]` and two `conversations` turns (`human`, `gpt`). Original answers contain `bbox_2d` and `labels`, with normalized coordinates in 0–1000. The source annotations use `front` and `side` labels.
 
 ```bash
 export TEACHER_API_KEY=your_api_key
 export TEACHER_API_URL=your_openai_compatible_base_url
-python data_tools/cot_generation/run_pipeline.py --root /data/cotton --resume
+python data_tools/cot_generation/run_pipeline.py --root /data/cotton --train-json train_split.json --valid-json valid_split.json --resume
 ```
 
 The command sends images and annotations to the configured teacher API. Credentials are read from environment variables; `DASHSCOPE_API_KEY` is also supported. Use `--validate-only` to reuse existing raw responses without making API calls. Use a separate data/work directory when changing the teacher, prompt, or source records: resume identifies previously generated records by sample ID.
+
+`--train-json` and `--valid-json` accept existing split files relative to the data root or absolute paths. Both are passed to manifest construction and merging, preserving the supplied training and validation membership.
 
 ## Stages
 

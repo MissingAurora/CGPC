@@ -5,21 +5,28 @@
 | `grounding_protocol.py` | Shared task mapping, JSON parsing, box validation, and spatial GT-order matching |
 | `validate_records.py` | Check image-conversation records, normalized boxes, image overlap, and LLaMA-Factory registration |
 | `cot_generation/` | Generate teacher reasoning, validate it, and export the auxiliary cotton CoT dataset |
-| `split_refcoco.py` | Split an already selected COCO image subset by dominant object category |
+| `generate_refcoco_records.py` | Convert existing COCO image splits into ALL and SINGLE conversation records |
 
 All datasets, images, annotations, generated responses, and API credentials remain outside this repository.
 
 ## Dense RefCOCO subset
 
-Install `data_tools/requirements.txt`, then run from the repository root:
+Prepare density-filtered images in existing `train/` and `valid/` directories, then run from the repository root:
 
 ```bash
-python data_tools/split_refcoco.py --instances /data/instances_train2014.json --image-dir /data/selected_dense_images --output-dir /data/refcoco_split --copy-images
+python data_tools/generate_refcoco_records.py --instances /data/instances_train2014.json --split-dir /data/refcoco_images --output-dir /data/refcoco_records --seed 42
 ```
 
-The splitter takes a density-filtered image directory and uses dominant-category stratification with a validation fraction of 0.2 and seed 42. It groups filename variants by their original COCO image ID to keep each source image in one split. Referring expressions are prepared separately.
+For each retained image, the generator selects the most frequent category (smallest category ID for ties), applies the original category exclusion list, and creates two independent conversations: ALL objects and one randomly chosen LEFT, RIGHT, or MIDDLE instruction. SINGLE selects the leftmost box edge, rightmost box edge, or box center nearest the image's horizontal center. Coordinates are normalized to integers in `[0,1000]`; ALL boxes are ordered by left edge and then top edge. Chinese instructions and English category labels follow the original generator.
 
-Outputs are `train.json`, `valid.json`, and `split_report.json`. Optional `--copy-images` creates corresponding image directories. The JSON files list image membership. Use their image IDs to assign referring records to each split, then export image-conversation training records. Rare dominant categories are pooled before stratification; each resulting stratum needs enough images for both splits.
+Outputs are `refcoco_train.json` and `refcoco_valid.json`, matching the Qwen LoRA dataset names. Each record contains `conversations`, `images`, and `imagesize`. Image paths are relative to `/data/refcoco_images`; use this as the image root during training and evaluation. For an existing `val/` directory, add `--valid-subdir val`; the output filename remains `refcoco_valid.json`. The generator preserves the supplied split membership and uses Python's standard library.
+
+Register the outputs with LLaMA-Factory:
+
+```bash
+python data_tools/validate_records.py --input /data/refcoco_records/refcoco_train.json --image-root /data/refcoco_images --register-name refcoco_train --registry /path/to/LLaMA-Factory/data/dataset_info.json
+python data_tools/validate_records.py --input /data/refcoco_records/refcoco_valid.json --image-root /data/refcoco_images --register-name refcoco_valid --registry /path/to/LLaMA-Factory/data/dataset_info.json
+```
 
 ## CoT and training registration
 
