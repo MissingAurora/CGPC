@@ -1,0 +1,15 @@
+# Install a CUDA-compatible torch/torchvision pair for your hardware.
+torch
+torchvision
+transformers
+peft
+accelerate
+safetensors
+Pillow
+numpy
+scipy
+matplotlib
+tqdm
+sentencepiece
+# Separate installations: LLaMA-Factory (Qwen SFT), XTuner/MMEngine (InternVL SFT).
+# Qwen 8B GRPO additionally requires flash-attn; install against your torch/CUDA build.
